@@ -3,7 +3,8 @@ node{
     git 'https://github.com/chakri8/project1'
   }
   stage('Compile-Package'){
-    sh 'mvn clean install package'
+    def mvnHome = tool name: 'maven_home', type: 'maven'
+    sh "${mvnHome}/bin/mvn clean install package"
   }
 
 }
